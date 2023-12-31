@@ -7,19 +7,19 @@
    </head>
    <body>
       <script>
-         var Today = new Date()
-         console.log(Today.getFullYear())
+         var today = new Date()
+         console.log(today.getFullYear())
          document.write(
             '오늘은 ',
-            Today.getFullYear(),
+            today.getFullYear(),
             '년 ',
-            Today.getMonth() + 1,
+            today.getMonth() + 1,
             '월 ',
-            Today.getDate(),
+            today.getDate(),
             '일 '
          )
 
-         switch (Today.getDay()) {
+         switch (today.getDay()) {
             case 0:
                document.write('일요입니다.')
                break
