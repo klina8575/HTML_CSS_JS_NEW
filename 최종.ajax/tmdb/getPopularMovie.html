@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+   </head>
+   <body>
+      <div class="images"></div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+      <script>
+         let page = 1
+         const movieURL = `https://api.themoviedb.org/3/movie/popular?language=ko-KR&page=${page}&region=KR`
+         $.ajax({
+            type: 'GET',
+            url: movieURL,
+            dataType: 'json',
+            beforeSend: function (xhr) {
+               xhr.setRequestHeader('accept', 'application/json')
+               xhr.setRequestHeader(
+                  'Authorization',
+                  'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZDI5ZmIzYTNiOGFkZjkzYzNkNTQxNDU4OTczNzA0OSIsInN1YiI6IjYyNGQ0MzQxYzM5MjY2MDA0ZjkyOThiZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.KZgDPlwHrwsC_3j6fia23GszszY_VDlhbRIblx1jGQc'
+               )
+            },
+            success: function (data) {
+               console.log('전체 data:', data)
+
+               const results = data.results
+               console.log('영화 목록', results)
+
+               for (const result of results) {
+                  console.log(result)
+                  console.log('영화제목: ', result.title)
+                  console.log('영화상세설명: ', result.overview)
+                  console.log('평점: ', result.vote_average)
+                  console.log('포스터: ', result.poster_path)
+
+                  let imgURL = 'https://image.tmdb.org/t/p/w500' + result.poster_path
+
+                  $('.images').append(`<a href="./getDetailMovie.html?id=${result.id}"><img src="${imgURL}" width="250"></a><br>`)
+                  $('.images').append(`<h2>${result.title}</h2><br />`)
+               }
+            },
+            error: function (request, status, error) {
+               console.log('code:' + request.status)
+               console.log('message:' + request.responseText)
+               console.log('error:' + error)
+            },
+         })
+      </script>
+   </body>
+</html>

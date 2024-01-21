@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+   </head>
+   <body>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+      <script>
+         $.ajax({
+            type: 'GET',
+            crossDomain: true,
+            url: 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?ServiceKey=Y0%2BhJ8iTQx73%2FFhG%2FONFk7YPxA3q0bmiYPS0BRaOpGiAsC7zO1%2FwTsRiA%2FpnYws8EGYcCHfnRGyvj8Wui0zyXA%3D%3D&pageNo=1&numOfRows=1000&dataType=JSON&base_date=20240121&base_time=2000&nx=61&ny=127',
+            dataType: 'json',
+            success: function (data) {
+               console.log('전체 data:', data.response.body)
+            },
+            error: function (request, status, error) {
+               console.log('code:' + request.status)
+               console.log('message:' + request.responseText)
+               console.log('error:' + error)
+            },
+         })
+      </script>
+   </body>
+</html>
