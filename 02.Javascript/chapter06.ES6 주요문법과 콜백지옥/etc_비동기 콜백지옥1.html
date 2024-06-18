@@ -8,37 +8,37 @@
       <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
       <script>
          //비동기 첫번재 사례(제이쿼리 ajax통신)
-         let url = 'https://api.openweathermap.org/data/2.5/weather?appid=f98e648c60dee9415bd3b65e176b86ca&units=metric&lang=kr&q=seoul'
+         // let url = 'https://api.openweathermap.org/data/2.5/weather?appid=f98e648c60dee9415bd3b65e176b86ca&units=metric&lang=kr&q=seoul'
 
-         let dataObj
+         // let dataObj
 
-         //서버에서 주는 데이터를 가져온다
-         $.ajax({
-            type: 'GET',
-            url: url,
-            dataType: 'json',
-            success: function (data) {
-               //정상 응답시 처리 작업
-               dataObj = data
-            },
-            error: function (request, status, error) {
-               //응답 에러시 처리 작업
-               console.log('code:' + request.status)
-               console.log('message:' + request.responseText)
-               console.log('error:' + error)
-            },
-         })
+         // //서버에서 주는 데이터를 가져온다
+         // $.ajax({
+         //    type: 'GET',
+         //    url: url,
+         //    dataType: 'json',
+         //    success: function (data) {
+         //       //정상 응답시 처리 작업
+         //       dataObj = data
+         //    },
+         //    error: function (request, status, error) {
+         //       //응답 에러시 처리 작업
+         //       console.log('code:' + request.status)
+         //       console.log('message:' + request.responseText)
+         //       console.log('error:' + error)
+         //    },
+         // })
 
-         console.log('결과 값:' + dataObj)
+         // console.log('결과 값:' + dataObj)
 
-         //비동기 두번째 사례
-         console.log('Hello')
+         // //비동기 두번째 사례
+         // console.log('Hello')
 
-         setTimeout(function () {
-            console.log('Bye')
-         }, 3000)
+         // setTimeout(function () {
+         //    console.log('Bye')
+         // }, 3000)
 
-         console.log('Hello Agn')
+         // console.log('Hello Agn')
 
          //비동기를 동기로 바꾸는 방법 -> 콜백함수 이용
 
@@ -54,6 +54,8 @@
          sayGoodbye(function () {
             console.log('Hello Agn')
          })
+
+         console.log('haha')
       </script>
    </head>
    <body></body>
